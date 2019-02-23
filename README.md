@@ -1,4 +1,4 @@
-# contactsvc2
+# contactsvc_graphql
 MongoDB, GraphQL을 이용한 API 서버
 
 ------------------------------
