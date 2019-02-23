@@ -1,0 +1,33 @@
+{
+  "name": "contactsvc2",
+  "version": "1.0.0",
+  "description": "contactsvc by graphql + mongodb",
+  "main": "./build/index.js",
+  "repository": "https://github.com/stepanowon/contactsvc2",
+  "author": "stepanowon@hotmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "base64-img": "^1.0.4",
+    "cp-file": "^6.0.0",
+    "del": "^3.0.0",
+    "graphql-yoga": "^1.16.7",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.12",
+    "shortid": "^2.2.14",
+    "stream-buffers": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "clean": "rimraf ./build/*",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "node ./build/index.js",
+    "start-dev": "nodemon --exec babel-node ./src/index.js"
+  }
+}
