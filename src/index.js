@@ -27,6 +27,11 @@ server.express.use("/photos/:id", async (req,res)=> {
 const options = {
     endpoint: '/graphql',
     playground: '/',
+    uploads : { maxFileSize : 1024*1024*4 },
+    formatResponse: (res, query) => {
+      console.log(query.context.request.body)
+      return res;
+    },
     //port: 8080
 }
 

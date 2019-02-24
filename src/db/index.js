@@ -106,6 +106,7 @@ const storeImageToDB = async ({stream, mimetype}) => {
 
 export const changePhoto = async (_id, upload)=> {
     const { stream, mimetype } = await upload;
+    console.log(upload);
     if (!mimetype.startsWith("image/")) {
         return { status:"fail", message:"이미지만 업로드 가능합니다." };
     }
