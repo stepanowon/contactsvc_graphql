@@ -177,6 +177,7 @@ const storeImageToDB = (() => {
 const changePhoto = exports.changePhoto = (() => {
     var _ref9 = _asyncToGenerator(function* (_id, upload) {
         const { stream, mimetype } = yield upload;
+        console.log(upload);
         if (!mimetype.startsWith("image/")) {
             return { status: "fail", message: "이미지만 업로드 가능합니다." };
         }
