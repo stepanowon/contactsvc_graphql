@@ -32,6 +32,10 @@ const options = {
       console.log(query.context.request.body)
       return res;
     },
+    formatError : (error, query)=> {
+      console.log(error);
+      return error;
+    },
     //port: 8080
 }
 
