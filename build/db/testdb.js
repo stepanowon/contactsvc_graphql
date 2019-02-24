@@ -1,19 +1,19 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.mongoose = exports.Photo = exports.Contact = undefined;
 
-var _mongoose = require('mongoose');
+var _mongoose = require("mongoose");
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_mongoose2.default.connect('mongodb://localhost:27017/test', { useNewUrlParser: true });
+//mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true })
 //mlab 연결정보
-//mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+_mongoose2.default.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 const contactSchema = new _mongoose2.default.Schema({
     _id: String,
