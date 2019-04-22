@@ -24,6 +24,13 @@ server.express.use("/photos/:id", async (req,res)=> {
   }
 })
 
+server.express.use(function (req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next()
+});
+
 const options = {
     endpoint: '/graphql',
     playground: '/',
