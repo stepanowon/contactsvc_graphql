@@ -6,6 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 
 var _db = require('../db');
 
+var _graphqlLog = require('graphql-log');
+
+var _graphqlLog2 = _interopRequireDefault(_graphqlLog);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 const getBaseUrl = req => req.protocol + '://' + req.get('host');
 
 const resolvers = {
@@ -25,6 +31,11 @@ const resolvers = {
         changePhotoAndQuery: (_, { _id, file }) => (0, _db.changePhoto)(_id, file)
     }
 };
+
+const logExecutions = (0, _graphqlLog2.default)({
+    prefix: 'resolvers.'
+});
+logExecutions(resolvers);
 
 exports.default = resolvers;
 //# sourceMappingURL=resolvers.js.map

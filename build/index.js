@@ -44,7 +44,16 @@ server.express.use("/photos/:id", (() => {
 
 const options = {
   endpoint: '/graphql',
-  playground: '/'
+  playground: '/',
+  uploads: { maxFileSize: 1024 * 1024 * 4 },
+  formatResponse: (res, query) => {
+    console.log(query.context.request.body);
+    return res;
+  },
+  formatError: (error, query) => {
+    console.log(error);
+    return error;
+  }
   //port: 8080
 };
 

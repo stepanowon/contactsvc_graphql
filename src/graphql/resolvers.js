@@ -1,4 +1,5 @@
 import { changePhoto, contactsAll, contactOne, searchContact, insertContact, updateContact, deleteContact } from '../db';
+import createGraphQLLogger from 'graphql-log';
 
 const getBaseUrl = (req) => req.protocol + '://' + req.get('host')
 
@@ -19,5 +20,11 @@ const resolvers = {
         changePhotoAndQuery : (_, { _id, file }) => changePhoto(_id, file),
     }
 }
+
+const logExecutions = createGraphQLLogger({
+    prefix: 'resolvers.',
+});
+logExecutions(resolvers);
+
 
 export default resolvers;
