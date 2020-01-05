@@ -74,7 +74,6 @@ export const deleteContact = async ({ _id }) => {
     let delDoc = await contactOne({ _id, baseUrl: "" });
     if (delDoc.photo !== constant.PHOTO_URL + "noimage") {
         let photo_id = delDoc.photo.substr(constant.PHOTO_URL.length);
-        console.log(photo_id)
         await Photo.deleteOne({ _id: photo_id });
     }
 
@@ -106,13 +105,11 @@ const storeImageToDB = async ({stream, mimetype}) => {
 
 export const changePhoto = async (_id, upload)=> {
     const { stream, mimetype } = await upload;
-    console.log(upload);
     if (!mimetype.startsWith("image/")) {
         return { status:"fail", message:"이미지만 업로드 가능합니다." };
     }
     //기존 이미지 삭제(noimage가 아닐 경우만)
     let doc = await contactOne({ _id, baseUrl: "" });
-    console.log(doc.photo)
     if (doc.photo !== constant.PHOTO_URL + "noimage") {
         let photo_id = doc.photo.substr(constant.PHOTO_URL.length);
         await Photo.deleteOne({ _id: photo_id });

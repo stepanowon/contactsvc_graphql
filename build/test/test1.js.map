@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/test/test1.js"],"names":["o1","ObjectId","console","log","toHexString"],"mappings":";;AAAA;;AAEA,IAAIA,KAAK,IAAIC,iBAAJ,EAAT;AACAC,QAAQC,GAAR,CAAYH,GAAGI,WAAH,EAAZ","file":"test1.js","sourcesContent":["import { ObjectId } from 'mongodb'\n\nlet o1 = new ObjectId();\nconsole.log(o1.toHexString())"]}

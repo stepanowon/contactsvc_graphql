@@ -123,7 +123,6 @@ const deleteContact = exports.deleteContact = (() => {
         let delDoc = yield contactOne({ _id, baseUrl: "" });
         if (delDoc.photo !== _constant2.default.PHOTO_URL + "noimage") {
             let photo_id = delDoc.photo.substr(_constant2.default.PHOTO_URL.length);
-            console.log(photo_id);
             yield _testdb.Photo.deleteOne({ _id: photo_id });
         }
 
@@ -177,13 +176,11 @@ const storeImageToDB = (() => {
 const changePhoto = exports.changePhoto = (() => {
     var _ref9 = _asyncToGenerator(function* (_id, upload) {
         const { stream, mimetype } = yield upload;
-        console.log(upload);
         if (!mimetype.startsWith("image/")) {
             return { status: "fail", message: "이미지만 업로드 가능합니다." };
         }
         //기존 이미지 삭제(noimage가 아닐 경우만)
         let doc = yield contactOne({ _id, baseUrl: "" });
-        console.log(doc.photo);
         if (doc.photo !== _constant2.default.PHOTO_URL + "noimage") {
             let photo_id = doc.photo.substr(_constant2.default.PHOTO_URL.length);
             yield _testdb.Photo.deleteOne({ _id: photo_id });

@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
 
-//mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true })
-//mlab 연결정보
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+let uri = process.env.MONGODB_URI ? process.env.MONGODB_URI : "'mongodb://localhost:27017/test"; 
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology:true  })
 
 const contactSchema = new mongoose.Schema({
     _id : String,

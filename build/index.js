@@ -26,7 +26,6 @@ const server = new _graphqlYoga.GraphQLServer({
 
 server.express.use("/photos/:id", (() => {
   var _ref = _asyncToGenerator(function* (req, res) {
-    console.log(req.params.id);
     let doc = yield _testdb.Photo.findOne({ _id: req.params.id });
     if (doc) {
       res.setHeader('Content-Type', doc.mimetype);
@@ -42,12 +41,18 @@ server.express.use("/photos/:id", (() => {
   };
 })());
 
+server.express.use(function (req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next();
+});
+
 const options = {
   endpoint: '/graphql',
   playground: '/',
   uploads: { maxFileSize: 1024 * 1024 * 4 },
   formatResponse: (res, query) => {
-    console.log(query.context.request.body);
     return res;
   },
   formatError: (error, query) => {

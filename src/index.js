@@ -13,7 +13,6 @@ const server = new GraphQLServer({
 })
 
 server.express.use("/photos/:id", async (req,res)=> {
-  console.log(req.params.id);
   let doc = await Photo.findOne({ _id: req.params.id });
   if (doc) {
     res.setHeader('Content-Type', doc.mimetype);
@@ -36,7 +35,6 @@ const options = {
     playground: '/',
     uploads : { maxFileSize : 1024*1024*4 },
     formatResponse: (res, query) => {
-      console.log(query.context.request.body)
       return res;
     },
     formatError : (error, query)=> {

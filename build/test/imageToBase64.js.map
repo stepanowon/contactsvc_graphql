@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/test/imageToBase64.js"],"names":["data","base64Img","base64Sync","console","log"],"mappings":";;AAAA;;;;;;AAEA,IAAIA,OAAOC,oBAAUC,UAAV,CAAqB,cAArB,CAAX;AACAC,QAAQC,GAAR,CAAYJ,IAAZ","file":"imageToBase64.js","sourcesContent":["import base64Img from 'base64-img';\n\nvar data = base64Img.base64Sync('./test/1.jpg');\nconsole.log(data);"]}
