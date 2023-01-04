@@ -58,8 +58,8 @@ const options = {
   formatError: (error, query) => {
     console.log(error);
     return error;
-  }
-  //port: 8080
+  },
+  port: 3000
 };
 
 server.start(options, ({ port }) => console.log(`GraphQL Server is running!! (port : ${port})`));
