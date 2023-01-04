@@ -7,10 +7,10 @@
   "author": "stepanowon@hotmail.com",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf ./build/*",
-    "build-babel": "babel -d ./build ./src -s",
+    "clean": "rimraf ./public/*",
+    "build-babel": "babel ./src -d ./public -s",
     "build": "npm run clean && npm run build-babel",
-    "start": "node ./build/index.js",
+    "start": "node ./public/index.js",
     "start-dev": "nodemon --exec babel-node ./src/index.js"
   },
   "devDependencies": {
