@@ -11,7 +11,7 @@ var _mongoose2 = _interopRequireDefault(_mongoose);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-let uri = process.env.MONGODB_URI ? process.env.MONGODB_URI : "'mongodb://localhost:27017/test";
+let uri = process.env.MONGODB_URI ? process.env.MONGODB_URI : "mongodb://localhost:27017/test";
 _mongoose2.default.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const contactSchema = new _mongoose2.default.Schema({

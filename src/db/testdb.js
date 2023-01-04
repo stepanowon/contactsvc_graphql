@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-let uri = process.env.MONGODB_URI ? process.env.MONGODB_URI : "'mongodb://localhost:27017/test"; 
+let uri = process.env.MONGODB_URI ? process.env.MONGODB_URI : "mongodb://localhost:27017/test"; 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology:true  })
 
 const contactSchema = new mongoose.Schema({
