@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import dotenv from "dotenv";
+dotenv.config();
 
 let uri = process.env.MONGODB_URI ? process.env.MONGODB_URI : "mongodb://localhost:27017/test"; 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology:true  })

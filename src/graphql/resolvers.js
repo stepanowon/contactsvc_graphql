@@ -1,7 +1,15 @@
 import { changePhoto, contactsAll, contactOne, searchContact, insertContact, updateContact, deleteContact } from '../db';
 import createGraphQLLogger from 'graphql-log';
 
-const getBaseUrl = (req) => req.protocol + '://' + req.get('host')
+const getBaseUrl = (req) => {
+  if (!req || !req.url) return 'http://localhost:4000';
+  try {
+    const url = new URL(req.url);
+    return url.origin;
+  } catch {
+    return 'http://localhost:4000';
+  }
+}
 
 const resolvers = {
     Query : {

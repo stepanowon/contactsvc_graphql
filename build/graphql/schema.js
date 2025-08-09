@@ -1,8 +1,9 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
+exports.default = void 0;
 const schema = `
 scalar Upload
 
@@ -47,6 +48,5 @@ type Mutation {
     changePhotoAndQuery(_id:String!, file:Upload!) : Result!
 }
 `;
-
-exports.default = schema;
+var _default = exports.default = schema;
 //# sourceMappingURL=schema.js.map
