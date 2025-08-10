@@ -254,6 +254,9 @@ GraphiQL Playground에서 다음과 같이 테스트할 수 있습니다:
 3. **스키마 문서**: 좌측 "Docs" 탭 확인
 4. **쿼리 실행**: 왼쪽 패널에서 GraphQL 쿼리 작성 후 실행
 
+## 🚀 Demo  
+[https://contactsvc3.bmaster.kro.kr](https://contactsvc3.bmaster.kro.kr/)
+
 ## 📚 참고 자료
 
 - [GraphQL Yoga v5 문서](https://the-guild.dev/graphql/yoga-server)
